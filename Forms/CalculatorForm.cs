@@ -16,9 +16,26 @@ namespace Forms
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// This is a sjared event handler for the CalculatorButton click event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CalculatorButton_Click(object sender, EventArgs e)
         {
+            var TheButton = sender as Button;
+
+            int ButtonValue;
+            bool Result = int.TryParse(TheButton.Text, out ButtonValue);
+            if(Result)
+            {
+                ResultLabel.Text = TheButton.Text;
+            }
+            else
+            {
+                ResultLabel.Text = "Not a Number (NAN)";
+
+            }
 
         }
     }
